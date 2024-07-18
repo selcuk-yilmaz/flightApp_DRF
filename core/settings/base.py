@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'psycopg2',
     'drf_yasg',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
     # 'debug_toolbar',     #.dev dosyasına taşıyoruz
+    #myapps
+    'users',
 ]
 
 MIDDLEWARE = [

@@ -13,7 +13,7 @@ schema_view = get_schema_view(
         description="Flight Reservation API project provides flight and reservation info",
         terms_of_service="#",
         contact=openapi.Contact(
-            email="rafe@clarusway.com"),  # Change e-mail on this line!
+            email="yilmax4@gmail.com"),  # Change e-mail on this line!
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -22,7 +22,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path('users/', include('users.urls')),
+    path('users/', include('users.urls')),
     # path('flight/', include('flight.urls')),
     
     
@@ -38,6 +38,6 @@ urlpatterns = [
 
 
 ]
-
+#yada debug true ise path'i aktif et şeklinde yazılabilir
 # if DEBUG:
 #     urlpatterns += path('__debug__/', include('debug_toolbar.urls'))
