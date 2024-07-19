@@ -1,12 +1,12 @@
 from rest_framework import serializers, validators
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 # from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from dj_rest_auth.serializers import TokenSerializer
 
 
-User = get_user_model()
+# User = get_user_model()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -48,11 +48,11 @@ class RegisterSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        password = validated_data.pop("password")
-        validated_data.pop('password1')
-        user = User.objects.create(**validated_data)
-        user.set_password(password)
-        user.save()
+        password = validated_data.pop("password")  #gelen datadan password ü laıyorum çünkü onu olduğu gibi kaydetmiyeceğim hashleme yapacağım.
+        validated_data.pop('password1')  #gelen datanın içinden sadece bir adet password ü kullancağım için siliyorum.
+        user = User.objects.create(**validated_data) #gelen validate olmuş datayı create ediyorum.Ama password yok dikkat.
+        user.set_password(password)    #set_password metodu ile password ü hash liyor.
+        user.save()                    #user modelini kaydediyor
         return user   
 
 class UserSerializer(serializers.ModelSerializer):

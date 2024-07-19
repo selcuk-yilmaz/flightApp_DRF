@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework.authtoken',
     'dj_rest_auth',
-    # 'debug_toolbar',     #.dev dosyasına taşıyoruz
+    # 'debug_toolbar',     #.dev dosyasına taşıdık.
     #myapps
     'users',
 ]
@@ -138,3 +138,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # INTERNAL_IPS = [ 
 #     "127.0.0.1", 
 # ]
+
+#hangi authentication'nın kullanılacağının settings e girilmesi.
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'users.serializers.CustomTokenSerializer',
+}
